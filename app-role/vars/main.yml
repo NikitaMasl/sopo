@@ -1,0 +1,9 @@
+---
+server_host: 0.0.0.0
+server_port: 8228
+
+
+project_dir: /home/nikita/mysite
+virtual_env_dir: /home/nikita/mysite/venv
+
+project_name: mysite

@@ -1,6 +1,0 @@
----
-- hosts: all
-  roles:
-    - template_file
-  vars:
-    text_variable: "text from vars in playbook"

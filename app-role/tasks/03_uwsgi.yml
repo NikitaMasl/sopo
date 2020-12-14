@@ -1,0 +1,14 @@
+---
+- name: Install uwsgi 
+  apt: name={{ item }} state=latest
+  with_items:
+    - uwsgi
+    - uwsgi-plugin-python
+    - uwsgi-plugin-python3
+
+- name: Create config file
+  template: src=uwsgi.ini dest={{project_dir}}/uwsgi.ini
+  register: wsgi_config
+
+- name: Start service
+  command: chdir={{project_dir}} uwsgi_python3 -i uwsgi.ini

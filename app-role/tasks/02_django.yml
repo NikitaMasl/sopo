@@ -1,0 +1,17 @@
+---
+- name: Create virtual enviroment for project
+  pip: 
+    chdir: '{{project_dir}}'
+    virtualenv: '{{virtual_env_dir}}'
+    virtualenv_python: python3
+    name:
+      - django
+      - uwsgi
+
+- name: Clear app directory
+  file:
+    path: '{{project_dir}}/{{project_name}}'
+    state: absent
+
+- name: Create django app
+  command: chdir={{project_dir}} {{virtual_env_dir}}/bin/django-admin.py startproject {{project_name}}
